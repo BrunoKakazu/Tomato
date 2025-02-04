@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bbbd61908ec98479dd771c1bdf46d0, type: 3}
+  m_Name: Start_Buttons
+  m_EditorClassIdentifier: 
+  spriteList:
+  - {fileID: -8327518265195785056, guid: 35fbc3f2c977f6749a4ce6c6e321791c, type: 3}
+  - {fileID: 1134516843697985733, guid: 35fbc3f2c977f6749a4ce6c6e321791c, type: 3}
+  - {fileID: -8451970551397733441, guid: 90a0bcc0563506f44b21f894a3b8371d, type: 3}
+  - {fileID: 7365386721608863105, guid: 90a0bcc0563506f44b21f894a3b8371d, type: 3}
+  - {fileID: -7414830730180813051, guid: f7449e572749f684a96d2042c67b5e10, type: 3}
+  - {fileID: -2353212100904865932, guid: f7449e572749f684a96d2042c67b5e10, type: 3}
