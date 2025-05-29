@@ -1,71 +1,59 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    private string[] nomesDasCartas = { "To", "Ma", "Toma", "Tomato", "Potato", "To Reverso", "Ma Reverso", "Toma Reverso", "Tomato Reverso" };
+    [SerializeField] private GameObject prefabTomato;
+    [SerializeField] private GameObject prefabMato;
+    [SerializeField] private GameObject prefabMa;
+    [SerializeField] private GameObject prefabTo;
 
-    public Sprite[] imagensDasCartas;
-    public List<Estrutura_da_Carta.Carta> cartas = new List<Estrutura_da_Carta.Carta>();
-    
+    public List<GameObject> cartasEspeciais;
+    public List<GameObject> baralhoTomato = new List<GameObject>();
 
     private void Awake()
     {
         CriarBaralho();
     }
 
+    private void Update()
+    {
+        Toque();
+    }
+
     private void CriarBaralho()
     {
-        CartasBase();
-        CartasEspeciais();
+        baralhoTomato.Clear();
+
+        AddCartas(prefabTomato, 10);
+        AddCartas(prefabMato, 10);
+        AddCartas(prefabMa, 10);
+        AddCartas(prefabTo, 10);
+
         Embaralhar();
     }
 
-    private void CartasBase()
+    private void AddCartas(GameObject prefab, int quantidade)
     {
-        int contador = 0;
-        int tiposDeCarta = 4;
-        int quantidadePorTipoDeCarta = 10;
-
-        for (int i = 0; i < tiposDeCarta; i++)
+        for (int i = 0; i < quantidade; i++)
         {
-            while (contador < quantidadePorTipoDeCarta)
-            {
-                cartas.Add(new Estrutura_da_Carta.Carta(i, nomesDasCartas[i], imagensDasCartas[i], false));
-                contador++;
-            }
-
-            contador = 0;
+            baralhoTomato.Add(prefab);
         }
-    }
-
-    private void CartasEspeciais()
-    {
-        int tiposDeCartaDeEfeito = 4;
-        int posicaoDeContinuacao = 5;
-
-        // Adicionando o Potato
-        cartas.Add(new Estrutura_da_Carta.Carta(4, nomesDasCartas[4], imagensDasCartas[4], false));
-
-        // Adicioniando as cartas de reverso
-        for (int i = 0; i < tiposDeCartaDeEfeito; i++)
-        {
-            cartas.Add(new Estrutura_da_Carta.Carta(i + posicaoDeContinuacao, nomesDasCartas[i + posicaoDeContinuacao], imagensDasCartas[i + posicaoDeContinuacao], true));
-        }
-
     }
 
     private void Embaralhar()
     {
-        for (int i = 0; i < cartas.Count; i++)
+        for (int i = 0; i < baralhoTomato.Count; i++)
         {
-            
-            int randomIndex = Random.Range(i, cartas.Count);
-
-            Estrutura_da_Carta.Carta cartaTemp = cartas[i];
-            cartas[i] = cartas[randomIndex];
-            cartas[randomIndex] = cartaTemp;
+            int randomIndex = Random.Range(i, baralhoTomato.Count);
+            GameObject temp = baralhoTomato[i];
+            baralhoTomato[i] = baralhoTomato[randomIndex];
+            baralhoTomato[randomIndex] = temp;
         }
+    }
+
+    private void Toque()
+    {
+
     }
 }
