@@ -16,11 +16,6 @@ public class Deck : MonoBehaviour
         CriarBaralho();
     }
 
-    private void Update()
-    {
-        Toque();
-    }
-
     private void CriarBaralho()
     {
         baralhoTomato.Clear();
@@ -50,10 +45,5 @@ public class Deck : MonoBehaviour
             baralhoTomato[i] = baralhoTomato[randomIndex];
             baralhoTomato[randomIndex] = temp;
         }
-    }
-
-    private void Toque()
-    {
-
     }
 }
